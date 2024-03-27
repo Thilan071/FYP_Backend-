@@ -18,7 +18,7 @@ const CaseDetails = () => {
 
   useEffect(() => {
     const fetchCaseData = async () => {
-      const docRef = doc(db, "cases", caseId);
+      const docRef = doc(db, "DRIVER DETAILS", caseId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -71,7 +71,7 @@ const CaseDetails = () => {
       
      
   <p>Address: {caseData.address}</p>
-        {/* <p>Date: {caseData.caseDate}</p>
+        <p>Date: {caseData.caseDate}</p>
         <p>Description: {caseData.caseDescription || 'N/A'}</p>
         <p>Direction: {caseData.caseDirection}</p>
         <p>Expire Date: {caseData.caseExpireDate || 'N/A'}</p>
@@ -93,16 +93,16 @@ const CaseDetails = () => {
         <p>Traffic OIC Number: {caseData.trafficOicNumber}</p>
         <p>Vehicle Number: {caseData.vehicleNumber}</p>
         <p>Vehicle Type: {caseData.vehicleType || 'N/A'}</p>
-        <p>Vehicle Type ID: {caseData.vehicleTypeId}</p> */}
+        <p>Vehicle Type ID: {caseData.vehicleTypeId}</p>
 
-        <p>Description: {caseData.caseDescription}</p>
+        {/* <p>Description: {caseData.caseDescription}</p>
       <p>Location: {caseData.caseLocation}</p>
       <p>NIC: {caseData.nic}</p>
       <p>Panelty No: {caseData.penalty_id}</p>
       <p>Officer No: {caseData.traffic_oic_number}</p>
   
 
-      <p>Direction: {caseData.caseDirection}</p>
+      <p>Direction: {caseData.caseDirection}</p> */}
                 </>
             )}
                     </Card.Body>

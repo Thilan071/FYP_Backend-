@@ -62,6 +62,10 @@ const PenaltyView = () => {
         console.log('View clicked');
     };
 
+    const handleAddNewPenalty = () => {
+        navigate('/add-new-penalty'); // Navigate to the AddNewPenalty page
+    };
+
     return (
         <>
             {/* Navigation bar */}
@@ -71,7 +75,7 @@ const PenaltyView = () => {
                     <Nav className="me-auto">
                         {/* Add navigation links here */}
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/PenaltyView">Cases</Nav.Link>
+                        <Nav.Link as={Link} to="/PenaltyView">Penalties</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
@@ -82,7 +86,11 @@ const PenaltyView = () => {
             {/* Main content */}
             <Container className="mt-4">
                 <Card>
-                    <Card.Header>Penalty View -0001</Card.Header>
+                    <Card.Header>Penalty View -0001
+                    <Button class="position-absolute top-0 end-0" variant="primary" onClick={handleAddNewPenalty}>Add New Penalty</Button>
+
+                    </Card.Header>
+
                     <Card.Body>
                         {(!loading) && (
                 <>
@@ -90,7 +98,7 @@ const PenaltyView = () => {
             <table  class="table table-striped"> 
                 <thead>
                     <tr>
-                    <th>Case ID</th>
+                    <th>Penalty ID</th>
                         <th>Penalty Cost</th>
                         <th>Penalty Description</th>
                        
