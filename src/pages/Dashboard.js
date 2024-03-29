@@ -171,14 +171,13 @@ const Dashboard = () => {
 
     const handleLogout = () => {
         localStorage.removeItem('user');
-        navigate('/login');
+        navigate('/');
     };
 
     return (
         <>
             <Navbar bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/adminDashboard">Cases</Nav.Link>
                         <Nav.Link as={Link} to="/PenaltyView">Penalties</Nav.Link>
