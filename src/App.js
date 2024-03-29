@@ -30,16 +30,12 @@ function App() {
           <Route path="/add-new-penalty" element={<AddNewPenalty />} />
           <Route path="/UsersView" element={<Users />} />
           <Route path="/add-new-user" element={<AddNewUserForm />} />
-
-
-
-          {/* Other routes */}
+          
         </Routes>
       </Router>
     </UserProvider>
-      // <AddNewUserForm/>
+      // <Login/>
     // <Users/>
-
     // <OicProfile/>
   );
 }
