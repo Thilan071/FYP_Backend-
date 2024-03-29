@@ -99,8 +99,9 @@ const PenaltyView = () => {
                 <thead>
                     <tr>
                     <th>Penalty ID</th>
+                    <th>Penalty Description</th>
+
                         <th>Penalty Cost</th>
-                        <th>Penalty Description</th>
                        
                         <th>Penalty Title</th>
                         {/* <th>Case Direction</th>
