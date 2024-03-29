@@ -71,10 +71,8 @@ const PenaltyView = () => {
             {/* Navigation bar */}
             <Navbar bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home"> Dashboard</Navbar.Brand>
                     <Nav className="me-auto">
                         {/* Add navigation links here */}
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/PenaltyView">Penalties</Nav.Link>
                     </Nav>
                     <Nav>
