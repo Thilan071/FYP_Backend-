@@ -30,12 +30,9 @@ const CaseDetails = () => {
     };
 
     fetchCaseData();
-  }, [caseId]); // Ensure this matches your route parameter
+  }, [caseId]); 
   const handleLogout = () => {
-    // Handle logout logic
-    // For example, clearing user session, redirecting to login page, etc.
-    // In a non-DOM environment, you would handle navigation differently
-    // For example, you might call a function to switch to the login screen
+
     console.log('Logout clicked');
 };
   if (loading) return <div>Loading...</div>;
@@ -48,7 +45,6 @@ const CaseDetails = () => {
                 <Container>
                     <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
                     <Nav className="me-auto">
-                        {/* Add navigation links here */}
                         <Nav.Link as={Link} to="/">Cases</Nav.Link>
                         <Nav.Link as={Link} to="/CaseView">CaseView</Nav.Link>
                     </Nav>
@@ -58,7 +54,6 @@ const CaseDetails = () => {
                 </Container>
             </Navbar>
 
-            {/* Main content */}
             <Container className="mt-4">
                 <Card>
                     <Card.Header>Case Details</Card.Header>
@@ -109,7 +104,6 @@ const CaseDetails = () => {
                 </Card>
             </Container>
      
-      {/* Display other case details as needed */}
     </div>
   );
 };
