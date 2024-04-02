@@ -11,6 +11,7 @@ import { UserProvider } from './UserContext';
 import AddNewPenalty from './pages/AddNewPenalty';
 import Users from './pages/Users';
 import AddNewUserForm from './pages/AddNewUserForm';
+import OicProfileDetails from './pages/OicProfileDetails';
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
     </UserProvider>
       // <Login/>
     // <Users/>
-    // <OicProfile/>
-  );
+  )
+    
 }
 export default App;
