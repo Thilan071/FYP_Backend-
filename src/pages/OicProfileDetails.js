@@ -1,63 +1,89 @@
 import React, { useState, useEffect } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
 import { Navbar, Nav, Container, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
+import { Link } from 'react-router-dom';
 
 const OicProfileDetails = () => {
-  const { oicId } = useParams(); // Assume your URL parameter is named 'oicId'
+  const { penaltyId } = useParams();
   const [oicData, setOicData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchOicData = async () => {
-      const docRef = doc(db, "traffic_oics", oicId);
+    const fetchOicsData = async () => {
+      const docRef = doc(db, "traffic_oics");
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
         setOicData(docSnap.data());
       } else {
-        console.log("No such OIC found!");
+        console.log("No such case found!");
       }
       setLoading(false);
     };
 
-    fetchOicData();
-  }, [oicId]);
-
+    fetchOicsData();
+  }, []); // Ensure this matches your route parameter
   const handleLogout = () => {
+    // Handle logout logic
+    // For example, clearing user session, redirecting to login page, etc.
+    // In a non-DOM environment, you would handle navigation differently
+    // For example, you might call a function to switch to the login screen
     console.log('Logout clicked');
-    // Add your logout logic here
-  };
-
+};
   if (loading) return <div>Loading...</div>;
-  if (!oicData) return <div>No OIC data found</div>;
+  if (!oicData) return <div>No case data found</div>;
+
+  console.log(penaltyId);
 
   return (
     <div>
+      {console.log(oicData)}
       <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">Cases</Nav.Link>
-            <Nav.Link as={Link} to="/OicProfile">OIC Profiles</Nav.Link>
-          </Nav>
-          <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
-        </Container>
-      </Navbar>
+                <Container>
+                    <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
+                    <Nav className="me-auto">
+                        {/* Add navigation links here */}
+                        <Nav.Link as={Link} to="/officerDashboard">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/">oic Profiles</Nav.Link>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
 
-      <Container className="mt-4">
-        <Card>
-          <Card.Header>OIC Details</Card.Header>
-          <Card.Body>
-            {/* Dynamically create paragraph tags for each OIC detail */}
-            {Object.entries(oicData).map(([key, value]) => (
-              <p key={key}>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value || 'N/A'}`}</p>
-            ))}
-          </Card.Body>
-        </Card>
-      </Container>
+            {/* Main content */}
+            <Container className="mt-4">
+                <Card>
+                    <Card.Header>OIC Details</Card.Header>
+                    <Card.Body>
+                        {(!loading) && (
+                <>
+                
+               
+              
+      
+     
+  {/* <p>Penalty Cost: {oicData.penaltyCost}</p> */}
+       
+        <p>oic Name: {oicData.trafficOicName}</p>
+      <p>OIC Number: {oicData.trafficOicNumber}</p>
+      {/* <p>NIC: {caseData.nic}</p>
+      <p>Panelty No: {caseData.penalty_id}</p>
+      <p>Officer No: {caseData.traffic_oic_number}</p>
+  
+
+      <p>Direction: {caseData.caseDirection}</p> */}
+                </>
+            )}
+                    </Card.Body>
+                </Card>
+            </Container>
+     
+      {/* Display other case details as needed */}
     </div>
   );
 };
