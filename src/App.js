@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CaseView from './pages/CaseView';
 import Dashboard from './pages/Dashboard';
@@ -12,6 +11,7 @@ import AddNewPenalty from './pages/AddNewPenalty';
 import Users from './pages/Users';
 import AddNewUserForm from './pages/AddNewUserForm';
 import OicProfileDetails from './pages/OicProfileDetails';
+import './index.css';
 
 function App() {
   return (
