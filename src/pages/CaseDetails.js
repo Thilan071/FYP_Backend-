@@ -137,7 +137,6 @@ const CaseDetails = () => {
 
   if (loading) return <div>Loading...</div>;
   if (!caseData) return <div>No case data found</div>;
-  console.log('case data', caseData);
   return (
     <div>
       <Navbar bg="primary" variant="dark">

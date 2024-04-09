@@ -146,8 +146,8 @@ import { Navbar, Nav, Container, Card, Button, Form } from 'react-bootstrap';
 import { AudioOutlined } from '@ant-design/icons';
 import { Table, Tooltip, Spin, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { db } from '../firebaseConfig'; // Adjust this path as needed
-import { useUser } from '../UserContext'; // Adjust this path as needed
+import { db } from '../firebaseConfig'; 
+import { useUser } from '../UserContext'; 
 import {
   MDBInputGroup,
   MDBAutocomplete,
@@ -292,8 +292,7 @@ const Dashboard = () => {
       },
     },
   ];
-  // Filter rows based on the search term
-  // Filter rows based on the search term
+  
   const filteredRows =
     searchTerm.length === 0
       ? rows
