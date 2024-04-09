@@ -89,3 +89,6 @@ const PenaltyDetails = () => {
 };
 
 export default PenaltyDetails;
+
+
+
