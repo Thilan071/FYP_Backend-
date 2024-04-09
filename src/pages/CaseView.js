@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { db } from '../firebaseConfig'; // Adjust the path as needed
+import { db } from '../firebaseConfig'; 
 import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 const CaseView = () => {
     const [rows, setRows] = useState();
     const [loading, setLoading] = useState(true);
-    // Fetch the required data using the getDocs method
-    useEffect(() => { // Use useEffect hook to fetch data
+    useEffect(() => { 
       
       
         fetchData();
-    }, []); // Empty dependency array means this effect runs once after the initial render
+    }, []); 
     const fetchData = async () => {
         setLoading(true);
       
@@ -22,16 +21,13 @@ const CaseView = () => {
             const rowData = [];
             querySnapshot.forEach(doc => {
                 console.log(doc.id);
-                // Access data using doc.data()
                 const data = doc.data();
-                // Push an object with id and all data fields
                 rowData.push({
                     id: doc.id, 
                     case_description: data.case_description,
                 nic: data.nic,
                 case_time:data.case_time,
                 case_direction:data.case_direction,
-                // case_expire_date:data.case_expire_date
                 
             
             });
@@ -45,23 +41,16 @@ const CaseView = () => {
     };
 
     const handleLogout = () => {
-        // Handle logout logic
-        // For example, clearing user session, redirecting to login page, etc.
-        // In a non-DOM environment, you would handle navigation differently
-        // For example, you might call a function to switch to the login screen
+       
         console.log('Logout clicked');
     };
     const handleView = () => {
-        // Handle logout logic
-        // For example, clearing user session, redirecting to login page, etc.
-        // In a non-DOM environment, you would handle navigation differently
-        // For example, you might call a function to switch to the login screen
+       
         console.log('View clicked');
     };
 
     return (
         <>
-            {/* Navigation bar */}
             <Navbar bg="primary" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home"> Dashboard</Navbar.Brand>
@@ -76,7 +65,6 @@ const CaseView = () => {
                 </Container>
             </Navbar>
 
-            {/* Main content */}
             <Container className="mt-4">
                 <Card>
                     <Card.Header>Case View -1222</Card.Header>
