@@ -55,7 +55,6 @@ const CaseView = () => {
                 <Container>
                     <Navbar.Brand href="#home"> Dashboard</Navbar.Brand>
                     <Nav className="me-auto">
-                        {/* Add navigation links here */}
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/CaseView">Cases</Nav.Link>
                     </Nav>
@@ -67,7 +66,6 @@ const CaseView = () => {
 
             <Container className="mt-4">
                 <Card>
-                    <Card.Header>Case View -1222</Card.Header>
                     <Card.Body>
                         {(!loading) && (
                 <>

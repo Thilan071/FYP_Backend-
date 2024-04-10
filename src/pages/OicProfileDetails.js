@@ -25,12 +25,9 @@ const OicProfileDetails = () => {
     };
 
     fetchOicsData();
-  }, []); // Ensure this matches your route parameter
+  }, []); 
   const handleLogout = () => {
-    // Handle logout logic
-    // For example, clearing user session, redirecting to login page, etc.
-    // In a non-DOM environment, you would handle navigation differently
-    // For example, you might call a function to switch to the login screen
+   
     console.log('Logout clicked');
 };
   if (loading) return <div>Loading...</div>;
@@ -45,7 +42,6 @@ const OicProfileDetails = () => {
                 <Container>
                     <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
                     <Nav className="me-auto">
-                        {/* Add navigation links here */}
                         <Nav.Link as={Link} to="/officerDashboard">Home</Nav.Link>
                         <Nav.Link as={Link} to="/">oic Profiles</Nav.Link>
                     </Nav>
@@ -55,7 +51,6 @@ const OicProfileDetails = () => {
                 </Container>
             </Navbar>
 
-            {/* Main content */}
             <Container className="mt-4">
                 <Card>
                     <Card.Header>OIC Details</Card.Header>
@@ -67,23 +62,16 @@ const OicProfileDetails = () => {
               
       
      
-  {/* <p>Penalty Cost: {oicData.penaltyCost}</p> */}
        
         <p>oic Name: {oicData.trafficOicName}</p>
       <p>OIC Number: {oicData.trafficOicNumber}</p>
-      {/* <p>NIC: {caseData.nic}</p>
-      <p>Panelty No: {caseData.penalty_id}</p>
-      <p>Officer No: {caseData.traffic_oic_number}</p>
-  
-
-      <p>Direction: {caseData.caseDirection}</p> */}
+      {}
                 </>
             )}
                     </Card.Body>
                 </Card>
             </Container>
      
-      {/* Display other case details as needed */}
     </div>
   );
 };
