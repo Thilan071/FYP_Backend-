@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useParams } from 'react-router-dom';
+import { useParams,useLocation } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import { Link } from 'react-router-dom';
@@ -10,10 +10,10 @@ const OicProfileDetails = () => {
   const { penaltyId } = useParams();
   const [oicData, setOicData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { state } = useLocation();
   useEffect(() => {
     const fetchOicsData = async () => {
-      const docRef = doc(db, "traffic_oics");
+      const docRef = doc(db, "traffic_oics",state.id);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -57,11 +57,7 @@ const OicProfileDetails = () => {
                     <Card.Body>
                         {(!loading) && (
                 <>
-                
-               
               
-      
-     
        
         <p>oic Name: {oicData.trafficOicName}</p>
       <p>OIC Number: {oicData.trafficOicNumber}</p>

@@ -3,7 +3,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { Card, Button, Container, Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBInput } from 'mdb-react-ui-kit';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,useLocation } from 'react-router-dom';
 import { db } from '../firebaseConfig';
 import { useUser } from '../UserContext';
 
@@ -13,7 +13,7 @@ const OicProfile = () => {
     const [oicData, setOicData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
-
+    const state = useLocation();
     useEffect(() => {
         const fetchOicData = async () => {
             setLoading(true);
@@ -43,8 +43,7 @@ const OicProfile = () => {
         console.log("View OIC ID:", oicId);
         navigate(`/oic-profile-details/${oicId}`);
 
-        // Here, you can replace the console.log with navigation logic, for example:
-        // navigate(`/oic-details/${oicId}`);
+        
     };
 
     const filteredOics = searchTerm.length > 0 ? oicData.filter(oic => 
@@ -91,7 +90,12 @@ const OicProfile = () => {
                                             <td>{oic.trafficOicName}</td>
                                             <td>{oic.trafficOicNumber}</td>
                                             <td>
-                                                <Button variant="primary" onClick={() => handleViewClick(oic.id)}>View</Button>
+                                                <Button variant="primary" onClick={() => navigate('/oic-profile-details', {
+        state: {
+          id: oic.id,
+        },
+      })
+}>View</Button>
                                             </td>
                                         </tr>
                                     ))}
