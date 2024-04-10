@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Select, Input,Button  } from 'antd';
-import { db } from '../firebaseConfig'; // Adjust the path as needed
+import { db } from '../firebaseConfig'; 
 import { collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
@@ -58,7 +58,6 @@ const Users = () => {
         dataIndex: 'created_at',
         key: 'created_at',
       },
-      // Add more columns as needed
     ];
     
   

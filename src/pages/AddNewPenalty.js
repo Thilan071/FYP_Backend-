@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { db } from '../firebaseConfig';
-import { collection, addDoc } from 'firebase/firestore'; // Import addDoc
-import { useNavigate } from 'react-router-dom'; // Import useNavigate if you want to redirect after submission
+import { collection, addDoc } from 'firebase/firestore'; 
+import { useNavigate } from 'react-router-dom'; 
 
 
 
@@ -16,7 +16,7 @@ const AddNewPenalty = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [cost, setCost] = useState('');
-    const navigate = useNavigate(); // Used for redirecting after submission
+    const navigate = useNavigate(); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -26,15 +26,14 @@ const AddNewPenalty = () => {
                 penaltyDescription: description,
                 penaltyCost: cost
             });
-            setStatusMessage('Penalty added successfully'); // Set success message
-            setTitle(''); // Reset the form fields
+            setStatusMessage('Penalty added successfully'); 
+            setTitle(''); 
             setDescription('');
             setCost('');
-            // Optionally, redirect after a delay
-            // setTimeout(() => navigate('/PenaltyView'), 3000); // Redirect after 3 seconds
+          
         } catch (error) {
             console.error("Error adding document: ", error);
-            setStatusMessage('Error adding penalty'); // Set error message
+            setStatusMessage('Error adding penalty'); 
         }}
  return(
 
@@ -62,7 +61,7 @@ const AddNewPenalty = () => {
                     Add New Penalty
                 </Button>
             </Form>
-            {statusMessage && <Alert variant="success" className="mt-3">{statusMessage}</Alert>} {/* Display the status message */}
+            {statusMessage && <Alert variant="success" className="mt-3">{statusMessage}</Alert>} 
         </Card.Body>
     </Card>
 </Container>

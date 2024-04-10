@@ -79,13 +79,11 @@ test('deletes a case correctly and updates UI', async () => {
   render(<DashboardWithContext />);
   await waitFor(() => expect(getDocs).toHaveBeenCalledTimes(1));
 
-  // Assuming Delete button is the second button in the document for each row
   const deleteButtons = screen.getAllByText(/Delete/i);
   fireEvent.click(deleteButtons[0]);
 
   await waitFor(() => expect(deleteDoc).toHaveBeenCalledTimes(1));
   
-  // Assuming the UI text that says "Deleted successfully" appears after deletion
   expect(screen.getByText(/Deleted successfully/i)).toBeInTheDocument();
 });
 
