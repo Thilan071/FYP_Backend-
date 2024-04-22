@@ -13,7 +13,7 @@ const Cases = () => {
     }, []); 
     const fetchData = async () => {
         setLoading(true);
-      
+      //
 
         try {
             const querySnapshot = await getDocs(collection(db, "cases"));
