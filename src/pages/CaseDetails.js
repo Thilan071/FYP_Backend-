@@ -16,8 +16,7 @@ const CaseDetails = () => {
   useEffect(() => {
     const fetchCaseData = async () => {
       const docRef = doc(db, 'DRIVER DETAILS', caseId);
-      const docSnap = await getDoc(docRef);
-
+      const docSnap = await getDoc(docRef); 
       if (docSnap.exists()) {
         setCaseData(docSnap.data());
       } else {
@@ -62,7 +61,6 @@ const CaseDetails = () => {
         <div className="mt-5">
           <Card className="border-[#E9EDF2] border-1">
             <div className="flex flex-col">
-              {/* Profile and view profile button  */}
               <div className="flex justify-between items-center   ">
                 <div className="flex justify-between items-center gap-3 ">
                   <img
@@ -81,36 +79,20 @@ const CaseDetails = () => {
                   </div>
                 </div>
 
-                {/* button */}
-                <div className="flex justify-between items-center gap-2">
-                  <h1 class=" font-medium text-[14px] leading-[16px] text-[#A8B4BF] font-mainTextStyle">
-                    Country :
-                  </h1>
-                  <h1 class=" font-semibold text-[15px] leading-[16px] text-[#576573] font-mainTextStyle">
-                    Sri Lanka
-                  </h1>
-                </div>
+               
               </div>
 
-              {/* border  */}
               <hr className=" border-1  border-[#E9EDF2] my-3" />
 
-              {/* country and approved by */}
               <div className="flex justify-between items-center py-5">
                 <div className="flex justify-between items-center gap-2">
                   <h1 class=" font-medium text-[14px] leading-[16px] text-[#A8B4BF] font-mainTextStyle">
-                    Country :
+                    Address :
                   </h1>
                   <h1 class=" font-semibold text-[15px] leading-[16px] text-[#576573] font-mainTextStyle">
                     {caseData.address}
                   </h1>
-                </div>
-                {/* approved by */}
-                <div className="flex justify-between items-center gap-4">
-                  <h1 class=" font-medium text-[14px] leading-[16px] text-[#A8B4BF] font-mainTextStyle">
-                    Approved By :
-                  </h1>
-                </div>
+                </div>                
               </div>
             </div>
           </Card>
