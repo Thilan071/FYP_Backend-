@@ -20,7 +20,6 @@ const Dashboard = () => {
   const { currentUser } = useUser();
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [deleteStatus, setDeleteStatus] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -54,8 +53,6 @@ const Dashboard = () => {
     try {
       await deleteDoc(docRef);
       setRows(rows.filter((row) => row.id !== id));
-      setDeleteStatus('Deleted successfully.');
-      setTimeout(() => setDeleteStatus(''), 3000);
     } catch (error) {
       console.error('Error removing document: ', error);
     }
@@ -192,7 +189,7 @@ const Dashboard = () => {
 
             <Search
               placeholder="Search by NIC or Description"
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)} // when the user search i set searachTerm to on change 
               enterButton
             />
           </div>
