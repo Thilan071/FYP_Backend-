@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import { Navbar, Nav, Container, Card, Button, Form } from 'react-bootstrap';
-import { AudioOutlined } from '@ant-design/icons';
 import { Table, Tooltip, Spin, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../firebaseConfig'; 
@@ -17,7 +16,6 @@ import {
 const Dashboard = () => {
   const navigate = useNavigate();
   const { Search } = Input;
-  const { currentUser } = useUser();
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');

@@ -103,10 +103,10 @@ const CaseDetails = () => {
               {/* Left Card Content */}
               <div className="flex flex-col gap-1">
                 <h1 class="font-semibold text-[17px] leading-[16px] text-[#2C3640] font-mainTextStyle">
-                  Payment Details
+                   Details
                 </h1>
                 <h1 class=" font-medium text-[13px] leading-[16px] text-[#8B98A6] font-mainTextStyle">
-                  View Manual Paymenr details here
+                  View details here
                 </h1>
               </div>
 
