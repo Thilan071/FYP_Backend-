@@ -8,9 +8,6 @@ import { db } from '../firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore'; 
 import { useNavigate } from 'react-router-dom'; 
 
-
-
-
 const AddNewPenalty = () => {
     const [statusMessage, setStatusMessage] = useState('');
     const [title, setTitle] = useState('');

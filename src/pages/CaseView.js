@@ -7,15 +7,12 @@ import { Link } from 'react-router-dom';
 const CaseView = () => {
     const [rows, setRows] = useState();
     const [loading, setLoading] = useState(true);
+
     useEffect(() => { 
-      
-      
         fetchData();
     }, []); 
     const fetchData = async () => {
         setLoading(true);
-      
-
         try {
             const querySnapshot = await getDocs(collection(db, "cases"));
             const rowData = [];
